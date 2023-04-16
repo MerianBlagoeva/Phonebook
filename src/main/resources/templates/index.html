@@ -39,6 +39,16 @@
         <tr th:each="contact : ${contacts}">
             <td th:text="${contact.name}"></td>
             <td th:text="${contact.number}"></td>
+            <td>
+                <form th:action="@{/edit{name}(name=${contact.getName()})}">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/delete{name}(name=${contact.getName()})}" th:method="DELETE">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
